@@ -51,15 +51,31 @@ namespace MyFileBrowser_1
         }
         static void ShowAllFilesInCurrentDirectory()
         {
-
+            string[] dirs = Directory.GetFiles(Environment.CurrentDirectory);
+            foreach (string dir in dirs)
+            {
+                Int64 fileSizeInBytes = new FileInfo(dir).Length;
+                Console.WriteLine(Path.GetFileName(dir) + "         " + fileSizeInBytes + " bytes");
+            }
+            Console.WriteLine();
         }
         static void ShowAllSubDirectories()
         {
+            string[] fileArray = Directory.GetDirectories(Environment.CurrentDirectory);
+            for (int i = 0; i < fileArray.Length; i++)
+            {
 
+                Console.WriteLine(fileArray[i]);
+            }
         }
         static void ShowHelp()
         {
-
+            Console.WriteLine("Help - ofb = MyFileBrowser.exe:");
+            Console.WriteLine("- mfb -c: Toont de huidige directory");
+            Console.WriteLine("- mfb -d: Toont alle subdirectories in  de huidige directory");
+            Console.WriteLine("- mfb -f: Toont alle files in de huidige directory");
+            Console.WriteLine("- mfb: Toont de huidige directory, files en subdirectories");
+            Console.WriteLine("- mfb -h: Toont help");
         }
 
     }
