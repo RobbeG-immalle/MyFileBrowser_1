@@ -38,12 +38,16 @@ namespace MyFileBrowser_1
         }
         static void ShowDefault()
         {
-
+            Console.WriteLine("Current Directory:");
+            ShowCurrentDirectory();
+            Console.WriteLine("Alle Subdirectories:");
+            ShowAllSubDirectories();
+            Console.WriteLine("Alle files:");
+            ShowAllFilesInCurrentDirectory();
         }
         static void ShowCurrentDirectory()
         {
-
-
+            Console.WriteLine("Current Directory:" + System.IO.Directory.GetCurrentDirectory());
         }
         static void ShowAllFilesInCurrentDirectory()
         {
